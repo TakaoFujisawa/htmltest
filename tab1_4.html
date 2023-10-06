@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Table Example</title>
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <style>
+        /* 表のコンテナにスタイルを追加 */
+        .table-container {
+            max-height: 300px; /* 適当な高さを設定 */
+            overflow-y: scroll;
+        }
+
+        /* ヘッダーのスタイル */
+        .table-header {
+            position: sticky;
+            top: 0;
+            background-color: #f0f0f0; /* ヘッダーの背景色を設定 */
+            z-index: 1; /* ヘッダーが他の要素の上に表示されるようにする */
+        }
+
+        /* 右側のテーブルのスタイル */
+        .right-table {
+            border-collapse: collapse;
+            width: 100%;
+			margin-top: 50px; /* テーブルを20px下に移動 */
+        }
+
+        .right-table th,
+        .right-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* 左側のテーブルのスタイル */
+        .left-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .left-table th,
+        .left-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* 1列目以外を非表示にする */
+        .left-table th:nth-child(n+2),
+        .left-table td:nth-child(n+2) {
+            display: none;
+        }
+    .row .col-lg-9.col-xl-8.offset-xl-1 .right-table {
+}
+    </style>
+</head>
+<body style="padding-top: 70px">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+            aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
+                                            role="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1"><a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a></div>
+            </li>
+            <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+        </form>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-lg-3">
+        <!-- 5x5の表を挿入 -->
+        <div class="table-container">
+            <table class="left-table">
+                <thead>
+                <tr>
+                    <th scope="col">Header 1</th>
+                    <th scope="col">Header 2</th>
+                    <th scope="col">Header 3</th>
+                    <th scope="col">Header 4</th>
+                    <th scope="col">Header 5</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+    <td onclick="showRow(this)">Mutation</td>
+    <td onclick="showRow(this)">Recognized by MS785</td>
+    <td onclick="showRow(this)">Recognized by MS27</td>
+    <td onclick="showRow(this)">Recognized by MS785 and MS27 (mix)</td>
+    <td onclick="showRow(this)">Derlin-1(CT4)interaction</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">K3E</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A4S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A4P</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A4F</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A4T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A4V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V5L</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C6F</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C6G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C6S</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C6W</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C6Y</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V7E</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L8Q</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L8V</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G10R</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G10V</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D11A</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D11Y</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G12R</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V14G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V14M</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G16A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G16S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I18Δ</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N19S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">F20C</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">F20L</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E21G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E21K</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">Q22H</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">Q22L</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">Q22R</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G27Δ</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V29A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V29+</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V31A</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G37R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G37V</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L38R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L38V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E40G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G41D</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G41S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H43R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">F45C</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">F45S</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H46D</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H46R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V47A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V47F</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H48Q</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H48R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E49K</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">T54R</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C57R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">S59I</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G61R</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">F64L</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N65S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">P66A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">P66R</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">P66S</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L67P</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L67R</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H71Y</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G72C</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G72S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G72D</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D76V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D76Y</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H80R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D83G</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D83N</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L84F1</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L84F2</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L84V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G85R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G85S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N86D</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N86I</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N86K</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N86S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V87A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V87M</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">T88Δ</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A89T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A89V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D90A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D90V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D90N</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">K91+1</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">K91+2</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G93C</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G93D</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G93R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G93S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G93V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G93A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V94A</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A95G</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A95T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A95V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D96+</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D96N</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D96V</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V97L</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V97M</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I99V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E100G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E100K</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D101G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D101H</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D101N</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D101Y</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I104F</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">S105L</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">S105Δ</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L106F</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L106V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">S107+</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G108V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D109Y</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C111Y</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I112M</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I112T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I113F</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I113T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G114A</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">R115C</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">R115G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">T116R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L117V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V118L1</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V118L2</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V118M</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V118+</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V119F</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">H120L</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E121G</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D124G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D124V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">D125H</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L126S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L126*</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L126Δ</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G127R</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G127+</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">K128+1</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">K128+2</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E132K</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E132+</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E133K</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E133V</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">E133Δ</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">S134N</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">S134T</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">T137A</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">T137R</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G138E</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N139D</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N139H</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">N139K</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A140G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G141A</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G141E</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G141*</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G141R</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L144F1</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L144F2</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L144+</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">L144S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A145G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A145T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C146R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">C146*</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G147D</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G147R</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G147S</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">G147C</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V148A</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V148G</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">V148I</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+    <td onclick="showRow(this)">No</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I149T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I149V</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I151S</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">I151T</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+  <tr>
+    <td onclick="showRow(this)">A152P</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">N.D.</td>
+    <td onclick="showRow(this)">Yes</td>
+    <td onclick="showRow(this)">Yes</td>
+  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-9 col-xl-8 offset-xl-0">
+        <!-- ヘッダーを持つ新しいテーブル -->
+        <table class="right-table">
+            <thead>
+            <tr>
+                <th scope="col">Header 1</th>
+                <th scope="col">Header 2</th>
+                <th scope="col">Header 3</th>
+                <th scope="col">Header 4</th>
+                <th scope="col">Header 5</th>
+            </tr>
+            </thead>
+            <tbody id="selectedRow">
+                <!-- 選択された行が表示される領域 -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+<script>
+    function showRow(cell) {
+        var row = cell.parentNode;
+        document.getElementById("selectedRow").innerHTML = row.outerHTML;
+    }
+</script>
+</body>
+</html>
